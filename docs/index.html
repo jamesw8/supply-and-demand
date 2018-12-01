@@ -131,7 +131,22 @@ focus.append("text")
     .attr("text-anchor", "middle")  
     .style("font-size", "24px") 
     .text("Supply and Demand Graph");
-    
+
+focus.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 5) + ")")
+      .style("text-anchor", "middle")
+      .text("Quantity");
+
+focus.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Price");
+
 let horizontal = focus.append("line")          // attach a line
     .style("stroke", "black")  // colour the line
     .attr("x1", x(0))     // x position of the first end of the line
