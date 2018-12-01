@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!-- https://stackoverflow.com/questions/42720488/d3-v4-drag-line-chart-with-x-and-y-axes -->
 <div id="legend" style="float: right">
-    <span style="background-color:orange">&nbsp;&nbsp;&nbsp;&nbsp;</span> Supply Curve
-    <span style="background-color:steelblue">&nbsp;&nbsp;&nbsp;&nbsp;</span> Demand Curve
+    <span style="background-color:#009933">&nbsp;&nbsp;&nbsp;&nbsp;</span> Supply Curve
+    <span style="background-color:#A00000">&nbsp;&nbsp;&nbsp;&nbsp;</span> Demand Curve
     <span style="background-color:black; border-radius:50%">&nbsp;&nbsp;&nbsp;&nbsp;</span> Equilibrium Point
 </div>
 <svg width="800" height="500"></svg>
@@ -72,7 +72,7 @@ let demand_path = focus.append("path")
     .datum(demand_points)
         .attr("id", "demand")
     .attr("fill", "none")
-    .attr("stroke", "steelblue")
+    .attr("stroke", "#A00000")
     .attr("stroke-linejoin", "round")
     .attr("stroke-linecap", "round")
     .attr("stroke-width", 3.0)
@@ -83,7 +83,7 @@ let supply_path = focus.append("path")
     .datum(supply_points)
         .attr("id", "supply")
     .attr("fill", "none")
-    .attr("stroke", "orange")
+    .attr("stroke", "#009933")
     .attr("stroke-linejoin", "round")
     .attr("stroke-linecap", "round")
     .attr("stroke-width", 3.0)
@@ -99,7 +99,7 @@ let supply_circles = focus.selectAll('#supply_circles')
     .attr('cx', function(d) { return x(d[0]);  })
     .attr('cy', function(d) { return y(d[1]); })
     .style('cursor', 'pointer')
-    .style('fill', 'orange');
+    .style('fill', '#009933');
 
 supply_circles.call(sdrag);
 
@@ -112,7 +112,7 @@ let demand_circles = focus.selectAll('#demand_circles')
     .attr('cx', function(d) { return x(d[0]);  })
     .attr('cy', function(d) { return y(d[1]); })
     .style('cursor', 'pointer')
-    .style('fill', 'steelblue');
+    .style('fill', '#A00000');
 
 demand_circles.call(ddrag);
 
@@ -148,7 +148,7 @@ let vertical = focus.append("line")
 
 let eq_point = focus.append('circle')
         .attr('class', 'demand')
-    .attr('r', 5.0)
+    .attr('r', 10.0)
     .attr('cx', function(d) { return x(find_intersection(supply_points, demand_points)[0]);  })
     .attr('cy', function(d) { return y(find_intersection(supply_points, demand_points)[1]); })
     .style('cursor', 'pointer')
